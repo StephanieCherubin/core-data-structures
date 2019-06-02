@@ -10,7 +10,7 @@ import math
 # string.ascii_letters is ascii_lowercase + ascii_uppercase
 # string.printable is digits + ascii_letters + punctuation + whitespace
 
-hex_dict = {'10': 'a', '11': 'b', '12': 'c', '13': 'd', '14': 'e', '15': 'f'}
+hex_dict = {'10': 'a', '11': 'b', '12': 'c', '13': 'd', '14': 'e', '15': 'f', '16': 'g', '17' : 'h', '18': 'i', '19': 'j', '20': 'k',  '21': 'l', '22': 'm', '23': 'n', '24': 'o', '25': 'p', '26': 'q', '27': 'r', '28': 's', '29': 't', '30': 'u',  '31': 'v', '32': 'w', '33': 'x', '34': 'y', '35': 'z' }
 
 def decode(digits, base):
     """Decode given digits in given base to number in base 10.
@@ -37,7 +37,7 @@ def decode(digits, base):
     return result
 
 def encode(number, base):
-    """Encode given number in base 10 to digits in given base.
+    """Encode the given number in base 10 to digits in the given base.
     number: int -- integer representation of number (in base 10)
     base: int -- base to convert to
     return: str -- string representation of number (in given base)"""
@@ -48,37 +48,19 @@ def encode(number, base):
 
     output_list = []
     remainder = 0
-
-    if base is 2:
-        if number == 1:
-            return '1'
-        else:
-            while number >= 1:
-                remainder = int(number % base)
-                output_list.insert(0, str(remainder))
-                new_val = math.floor(number / base)
-                number = new_val
-        return ''.join(output_list)
     
-    if base is 10:
-        return str(number)
-    if base is 16:
-        if number == 1:
-            return '1'
-        else:
-            while number >= 1:
-                remainder = number % base
-
-                for key, value in hex_dict.items():    # 
-                    if key == str(remainder):
-                        remainder = value
-
-                output_list.insert(0, str(remainder))
-                new_val = math.floor(number / base)
-                number = new_val
-        return ''.join(output_list)
+    while number > 0:
+        remainder = number % base 
+        for key, value in hex_dict.items():    # 
+            if str(remainder) == key:
+                remainder = value
+        print('remainder', remainder)
+        output_list.insert(0, str(remainder))
+        new_val = math.floor(number / base)
+        number = new_val
         
-
+    return ''.join(output_list)
+        
 def convert(digits, base1, base2):
     """Convert given digits in base1 to digits in base2.
     digits: str -- string representation of number (in base1)
@@ -132,4 +114,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-    print(decode('a', 16))
+    # print(decode('a', 16))
+    print(encode(1234, 16))
