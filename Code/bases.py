@@ -1,14 +1,5 @@
-#!python
-
 import string
 import math
-# Hint: Use these string constants to encode/decode hexadecimal digits and more
-# string.digits is '0123456789'
-# string.hexdigits is '0123456789abcdefABCDEF'
-# string.ascii_lowercase is 'abcdefghijklmnopqrstuvwxyz'
-# string.ascii_uppercase is 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-# string.ascii_letters is ascii_lowercase + ascii_uppercase
-# string.printable is digits + ascii_letters + punctuation + whitespace
 
 hex_dict = {'10': 'a', '11': 'b', '12': 'c', '13': 'd', '14': 'e', '15': 'f', '16': 'g', '17' : 'h', '18': 'i', '19': 'j', '20': 'k',  '21': 'l', '22': 'm', '23': 'n', '24': 'o', '25': 'p', '26': 'q', '27': 'r', '28': 's', '29': 't', '30': 'u',  '31': 'v', '32': 'w', '33': 'x', '34': 'y', '35': 'z' }
 
@@ -70,31 +61,9 @@ def convert(digits, base1, base2):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
-    # TODO: Convert digits from base 2 to base 16 (and vice versa)
+
     result = decode(digits, base1)
-
-    output_list = []
-    remainder = 0
-    new_val = 0
-
-    while result > base2:
-        remainder = result %  base2
-        new_val = math.floor(result / base2)
-        output_list.insert(0, str(remainder))
- 
-        result = new_val
-
-    if result <= new_val:
-        output_list.insert(0, str(new_val))
-        # print(output_list)
-    return ''.join(output_list)
-    # TODO: Convert digits from base 2 to base 10 (and vice versa)
-    # ...
-    # TODO: Convert digits from base 10 to base 16 (and vice versa)
-    # ...
-    # TODO: Convert digits from any base to any base (2 up to 36)
-    # ...
-
+    return encode(result, base2)
 
 def main():
     """Read command-line arguments and convert given digits between bases."""
@@ -115,4 +84,4 @@ def main():
 if __name__ == '__main__':
     main()
     # print(decode('a', 16))
-    print(encode(1234, 16))
+    print(convert('1010', 2, 16))
