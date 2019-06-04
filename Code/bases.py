@@ -13,16 +13,16 @@ def decode(digits, base):
     
     result = 0 #Keep a running total
     i = 0
-    rev_digits = digits[::-1]
+    reversed_digits = digits[::-1]
 
-    for digit in rev_digits:
+    for digit in reversed_digits:
         if digit.isalpha():
             for key, value in hex_dict.items():    # 
                     if value == digit:
                         digit = key
 
-        baaaase = (base**i)
-        total = int(digit) * baaaase
+        output= (base**i)
+        total = int(digit) * output
         result += total
         i += 1    
     return result
@@ -42,13 +42,13 @@ def encode(number, base):
     
     while number > 0:
         remainder = number % base 
-        for key, value in hex_dict.items():    # 
-            if str(remainder) == key:
-                remainder = value
-        print('remainder', remainder)
+
+        if remainder > 9:
+            remainder = hex_dict[str(remainder)]
         output_list.insert(0, str(remainder))
-        new_val = math.floor(number / base)
-        number = new_val
+
+        quotient = math.floor(number / base)
+        number = quotient
         
     return ''.join(output_list)
         
