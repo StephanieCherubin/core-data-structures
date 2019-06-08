@@ -32,8 +32,24 @@ def binary_search(array, item):
 
 
 def binary_search_iterative(array, item):
-    # TODO: implement binary search iteratively here
-    pass
+    first = 0
+    last = len(array) -1
+    position = None
+    found = False
+
+    while not found and first <= last:
+        # you can import stat to use statistics.mean(array)
+        midpoint = (first + last) // 2
+
+        if array[midpoint] == item:
+            found = True
+            position = midpoint
+        elif item < array[midpoint]:
+                last = midpoint -1
+        elif item > array[midpoint]:
+                first = midpoint + 1
+    return position
+
     # once implemented, change binary_search to call binary_search_iterative
     # to verify that your iterative implementation passes all tests
 
