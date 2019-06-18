@@ -5,31 +5,23 @@ def contains(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
-    txt_index = 0 # keeps track of each character position in text
-    pat_index = 0 # keeps track of each character position in pattern
+    text_index = 0 
+    pattern_index = 0 
 
-    # edge case for empty string or if the pattern matches the text
+    # base cases
     if pattern == '' or text == pattern:
-        print('True')
+        return True
 
-    # once the text index is the same as the length of text, this will stop
-    while txt_index != len(text):
-        if text[txt_index] == pattern[pat_index]:
-            if pat_index == len(pattern) - 1:
-                print('True')
-            pat_index += 1
+    while text_index <= len(text)-1:
+        if text[text_index] == pattern[pattern_index]:
+            if pattern_index == len(pattern) - 1:
+                return True
+            pattern_index += 1
         else:
-            txt_index -= pat_index
-            pat_index = 0
-        txt_index += 1
-    print('False')
-    
-    
-    """Loop through all char in text.
-    Take slice of chars in text.
-    Compare with ==
-    return True 
-    else return False """
+            text_index -= pattern_index
+            pattern_index = 0
+        text_index += 1
+    return False
 
 def find_index(text, pattern):
     """Return the starting index of the first occurrence of pattern in text,
@@ -78,4 +70,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    # contains('bananas', 'nas')
