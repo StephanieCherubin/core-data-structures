@@ -37,16 +37,15 @@ def binary_search_iterative(array, item):
     left = 0
     right = len(array) -1
 
-    while left <= right:
+    if left <= right:
         midpoint = left + (right - left) // 2
-
+        # midpoint = len(array) // 2
         if array[midpoint] == item:
             return midpoint
         elif item < array[midpoint]:
                 right = midpoint -1
         elif item > array[midpoint]:
                 left = midpoint + 1
-
 
 def binary_search_recursive(array, item, left=None, right=None):
 
@@ -65,3 +64,4 @@ def binary_search_recursive(array, item, left=None, right=None):
 
         else:
             return midpoint
+            
