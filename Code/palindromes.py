@@ -18,7 +18,7 @@ def is_palindrome(text):
 
 
 def is_palindrome_iterative(text):
-    # TODO: Runtime: O(n)
+    """ Runtime: O(n) """
     clean_palindrome = []
 
     lis = list(text)
@@ -29,9 +29,9 @@ def is_palindrome_iterative(text):
     reverse_palindrome = clean_palindrome[::-1]
 
     clean = ''.join(clean_palindrome).lower()
-    rev = ''.join(reverse_palindrome).lower()
+    reverse = ''.join(reverse_palindrome).lower()
 
-    if clean == rev:
+    if clean == reverse:
         return True 
     else:
         return False
@@ -66,9 +66,7 @@ def is_palindrome_recursive(text, left=None, right=None):
         return False
 
     return is_palindrome_recursive(text, left + 1 , right - 1)   
-
-
-    
+   
 
 def main():
     import sys
