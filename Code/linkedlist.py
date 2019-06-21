@@ -104,17 +104,23 @@ class LinkedList(object):
 
         if self.is_empty():
             self.append(item)
+            return
+        
+        if index == self.size:
+            self.append(item)
+            return 
 
         elif index == 0:
             self.prepend(item)
-
+            return
+        
         else:
             while counter < index:
                 previous_node = current_node
                 current_node = current_node.next
                 counter +=1 
 
-            if counter == index:
+            if counter + 1 == index:
                 self.append(item)
             
             else:
