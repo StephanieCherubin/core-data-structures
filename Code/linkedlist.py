@@ -82,12 +82,10 @@ class LinkedList(object):
         node = self.head 
         counter = 0 
 
-        while counter <= index:
-            print('index:', index)
-            print('counter:', counter)
+        while counter != index:
             node = node.next
             counter += 1
-            return node.data  
+        return node.data
 
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
@@ -98,6 +96,31 @@ class LinkedList(object):
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert item after it
+        #TODO: Traverse through the linked list. Check each item for given index. If found, insert item after it
+        counter = 0
+        new_node = Node(item) # Create new node to hold given item
+        current_node = self.head
+        previous_node = None
+
+        if self.is_empty():
+            self.append(item)
+
+        elif index == 0:
+            self.prepend(item)
+
+        else:
+            while counter < index:
+                previous_node = current_node
+                current_node = current_node.next
+                counter +=1 
+
+            if counter == index:
+                self.append(item)
+            
+            else:
+                previous_node.next = new_node
+                new_node.next = current_node
+                self.size += 1
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
