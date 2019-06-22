@@ -34,14 +34,13 @@ def find_index(text, pattern):
     text_index = 0 
     pattern_index = 0 
 
-    # base cases
+    # base case
     if pattern == '' :
         return 0
     
     for text_index, char in enumerate(text):
         starting_index = text_index
         while pattern[pattern_index]== text[text_index]:
-            print(starting_index)
             if len(pattern) - 1 == pattern_index:
                 return starting_index
             pattern_index += 1
@@ -66,18 +65,6 @@ def find_all_indexes(text, pattern, start =0):
             indexes.append(iterator)
             iterator += 1
         return indexes
-
-    # while text_index < len(text):
-    #     if text[text_index] != pattern[pattern_index]:
-    #         if pattern_index == len(pattern) - 1: 
-    #             return indexes
-    #         pattern_index += 1
-    #         text_index += 1
-
-    #     else:
-    #         text_index += 1
-
-    # return indexes
 
     for text_index, char in enumerate(text):
         starting_index = text_index
