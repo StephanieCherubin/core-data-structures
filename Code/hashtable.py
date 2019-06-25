@@ -26,16 +26,13 @@ class HashTable(object):
 
     def load_factor(self):
         """Return the load factor, the ratio of number of entries to buckets.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
-        # return float(self.size)/float(len(self.buckets)) if self.size else 0
+        Best and worst case running time: O(1) under what conditions? Calculating load factor is always constant"""
 
-        return self.size/len(self.buckets)
-
-
+        return self.size/len(self.buckets) if self.size else 0
 
     def keys(self):
         """Return a list of all keys in this hash table.
-        Best and worst case running time: O(n^2) under what conditions? its a double for loop"""
+        Best and worst case running time: O(n^2) under what conditions? its a double for-loop"""
         # Collect all keys in each of the buckets
         all_keys = []
 
@@ -46,7 +43,7 @@ class HashTable(object):
 
     def values(self):
         """Return a list of all values in this hash table.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: O(n^2) under what conditions? its a double for-loop"""
         # Collect all values in each of the buckets
         all_values = []
 
@@ -57,7 +54,7 @@ class HashTable(object):
 
     def items(self):
         """Return a list of all entries (key-value pairs) in this hash table.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: O(n) under what conditions? iterating through individual buckets"""
         # Collect all pairs of key-value entries in each of the buckets
         all_items = []
         for bucket in self.buckets:
@@ -66,7 +63,7 @@ class HashTable(object):
 
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: O(n) under what conditions? it traverses buckets linearly"""
         # Count number of key-value entries in each of the buckets
         item_count = 0
         for bucket in self.buckets:
@@ -77,8 +74,8 @@ class HashTable(object):
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Best case running time:O(1) if buckets are empty or key is first
+        Worst case running time: O(n) if key doesn't exist or is later in the buckets"""
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
@@ -89,8 +86,8 @@ class HashTable(object):
 
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Best case running time: O(1) is value is first or buckets are empty
+        Worst case running time: O(n) if value is later in the list or the key doesnt exist"""
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
@@ -106,8 +103,8 @@ class HashTable(object):
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Best case running time: O(1) if there are no other items in the bucket
+        Worst case running time: O(n) because you are searching through the buckets"""
         # Find the bucket the given key belongs in
         index = self._bucket_index(key) #O(1)
         bucket = self.buckets[index] #O(1)
