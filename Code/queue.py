@@ -30,18 +30,18 @@ class LinkedQueue(object):
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
         Running time: O(???) – Why? [TODO]"""
-        # TODO: Insert given item
+        return self.list.append(item)
 
     def front(self):
         """Return the item at the front of this queue without removing it,
         or None if this queue is empty."""
-        # TODO: Return front item, if any
-
+        return self.list.head.data
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
         Running time: O(???) – Why? [TODO]"""
-        # TODO: Remove and return front item, if any
+        # return self.list.prepend(item)
+        pass
 
 
 # Implement ArrayQueue below, then change the assignment at the bottom
