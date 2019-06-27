@@ -56,7 +56,7 @@ def find_all_indexes(text, pattern, start =0):
             iterator += 1
         return indexes
 
-    for text_index, char in enumerate(text):
+    for text_index in range(len(text)):
         starting_index = text_index
 
         while pattern[pattern_index]== text[text_index]:
