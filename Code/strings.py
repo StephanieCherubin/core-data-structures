@@ -29,24 +29,10 @@ def find_index(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
+    indexes = find_all_indexes(text, pattern, start=0)
 
-    starting_index = None
-    text_index = 0 
-    pattern_index = 0 
-
-    # base case
-    if pattern == '' :
-        return 0
-    
-    for text_index, char in enumerate(text):
-        starting_index = text_index
-        while pattern[pattern_index]== text[text_index]:
-            if len(pattern) - 1 == pattern_index:
-                return starting_index
-            pattern_index += 1
-            text_index += 1
-        pattern_index = 0
-    return None
+    if find_all_indexes(text, pattern, start=0):
+        return indexes[0]
 
 def find_all_indexes(text, pattern, start =0):
     """Return a list of starting indexes of all occurrences of pattern in text,
