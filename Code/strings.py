@@ -4,7 +4,8 @@ def contains(text, pattern):
     """Return a boolean indicating whether pattern occurs in text."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # TODO: Implement contains here (iteratively and/or recursively)
+    """Worst Running time: O(n) because it must traverse through the whole text to find pattern  """
+    """Space complexity:O(1) because there is nothing stored"""
     text_index = 0 
     pattern_index = 0 
 
@@ -28,7 +29,8 @@ def find_index(text, pattern):
     or None if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # TODO: Implement find_index here (iteratively and/or recursively)
+    """Running time: Worst Running time: O(n * l) """
+    """Space complexity: O(n) where n is the length of text"""
     indexes = find_all_indexes(text, pattern, start=0)
 
     if find_all_indexes(text, pattern, start=0):
@@ -39,7 +41,9 @@ def find_all_indexes(text, pattern, start =0):
     or an empty list if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # TODO: Implement find_all_indexes here (iteratively and/or recursively)
+    """Worst Running time: O(n * l) 
+    where n is the number of indexes in text and l is the length of the pattern"""
+    """Space complexity: O(n) where n is the length of text"""
     indexes = []
     text_index = 0 
     pattern_index = 0 
