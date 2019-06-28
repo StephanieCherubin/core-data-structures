@@ -30,18 +30,25 @@ class LinkedStack(object):
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O(???) – Why? [TODO]"""
-        # TODO: Push given item
+        return self.list.append(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        # TODO: Return top item, if any
+        if self.is_empty():
+            return None
+        return self.list.head.data
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
         Running time: O(???) – Why? [TODO]"""
-        # TODO: Remove and return top item, if any
+        if self.is_empty():
+            raise ValueError
+        else:
+            node = self.list.head.data
+            self.list.delete(node)
+            return node
 
 
 # Implement ArrayStack below, then change the assignment at the bottom
