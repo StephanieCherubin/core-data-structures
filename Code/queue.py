@@ -53,7 +53,6 @@ class ArrayQueue(object):
         """Initialize this queue and enqueue the given items, if any."""
         # Initialize a new list (dynamic array) to store the items
         self.list = list()
-        # self.front = self.list[0]
 
         if iterable is not None:
             for item in iterable:
@@ -75,7 +74,7 @@ class ArrayQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(1) – because we always add to the same spot and only modify one value""""
+        Running time: O(1) – because we always add to the same spot and only modify one value"""
         return self.list.append(item)
 
     def front(self):
