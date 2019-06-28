@@ -27,7 +27,7 @@ class LinkedQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) – because we always add to the same spot and only modify one value"""
         return self.list.append(item)
 
     def front(self):
@@ -39,7 +39,7 @@ class LinkedQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) – because we always add to the same spot and only modify one value"""
         if self.is_empty():
             raise ValueError
         else:
@@ -75,7 +75,7 @@ class ArrayQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) – because we always add to the same spot and only modify one value""""
         return self.list.append(item)
 
     def front(self):
@@ -88,7 +88,7 @@ class ArrayQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(n) worst case because you have to change the indexes of other items in the list"""
 
         if self.is_empty():
             raise ValueError()
