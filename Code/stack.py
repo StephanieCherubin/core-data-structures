@@ -94,7 +94,7 @@ class ArrayStack(object):
         if self.is_empty():
             raise ValueError()
         else:
-            return self.list.pop(0)
+            return self.list.pop(-1)
 
 
 # Stack = LinkedStack
