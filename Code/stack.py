@@ -55,8 +55,8 @@ class ArrayStack(object):
 
     def __init__(self, iterable=None):
         """Initialize this stack and push the given items, if any."""
-        # Initialize a new list (dynamic array) to store the items
-        self.list = list()
+        
+        self.list = list() # Initialize a new list (dynamic array) to store the items
         if iterable is not None:
             for item in iterable:
                 self.push(item)
@@ -85,7 +85,7 @@ class ArrayStack(object):
         or None if this stack is empty."""
         if self.is_empty():
             return None
-        return self.list[-1]
+        return self.list.tail.data
 
     def pop(self):
         """Remove and return the item on the top of this stack,
@@ -94,7 +94,7 @@ class ArrayStack(object):
         if self.is_empty():
             raise ValueError()
         else:
-            return self.list.pop(-1)
+            return self.list.pop(self.list.tail.data)
 
 
 Stack = LinkedStack
