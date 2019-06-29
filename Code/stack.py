@@ -44,7 +44,7 @@ class LinkedStack(object):
         if self.is_empty():
             raise ValueError
         else:
-            node = self.list.head.data
+            node = self.list.tail.data
             self.list.delete(node)
             return node
 
