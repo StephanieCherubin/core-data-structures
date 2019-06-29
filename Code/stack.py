@@ -35,7 +35,7 @@ class LinkedStack(object):
         or None if this stack is empty."""
         if self.is_empty():
             return None
-        return self.list.head.data
+        return self.list.tail.data
 
     def pop(self):
         """Remove and return the item on the top of this stack,
@@ -97,5 +97,5 @@ class ArrayStack(object):
             return self.list.pop(-1)
 
 
-# Stack = LinkedStack
-Stack = ArrayStack
+Stack = LinkedStack
+# Stack = ArrayStack
