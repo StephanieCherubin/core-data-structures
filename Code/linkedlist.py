@@ -185,7 +185,7 @@ class LinkedList(object):
         Worst case running time: ??? under what conditions? [TODO]"""
         # TODO: Find the node containing the given old_item and replace its
         # data with new_item, without creating a new node object
-        counter = 0
+        # counter = 0
         node = self.head 
 
         while node: # check if head exists
@@ -194,7 +194,7 @@ class LinkedList(object):
                 return
             else: 
                 node = node.next
-            counter += 1
+            # counter += 1
 
         raise ValueError('{} is not found'.format(old_item))
 
