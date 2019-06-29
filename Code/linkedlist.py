@@ -99,18 +99,18 @@ class LinkedList(object):
         #TODO: Traverse through the linked list. Check each item for given index. If found, insert item after it
         counter = 0
         new_node = Node(item) # Create new node to hold given item
-        current_node = self.head
+        current_node = self.head # Create a variable
         previous_node = None
 
-        if self.is_empty():
-            self.append(item)
+        if self.is_empty(): # If there is nothing
+            self.append(item) # Add item
             return
         
-        if index == self.size:
-            self.append(item)
+        if index == self.size: # node at index is found
+            self.append(item) # insert item after it
             return 
 
-        elif index == 0:
+        elif index == 0: 
             self.prepend(item)
             return
         
@@ -185,7 +185,6 @@ class LinkedList(object):
         Worst case running time: ??? under what conditions? [TODO]"""
         # TODO: Find the node containing the given old_item and replace its
         # data with new_item, without creating a new node object
-        # counter = 0
         node = self.head 
 
         while node: # check if head exists
@@ -194,7 +193,6 @@ class LinkedList(object):
                 return
             else: 
                 node = node.next
-            # counter += 1
 
         raise ValueError('{} is not found'.format(old_item))
 
