@@ -41,6 +41,9 @@ class BinaryTreeNode(object):
         left_height = 0
         right_height = 0
 
+        if self.is_leaf():
+            return 0
+
         if self.left:
             left_height = 1 + self.left.height()
         if self.right:
