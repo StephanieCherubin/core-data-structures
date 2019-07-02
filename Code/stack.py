@@ -88,11 +88,10 @@ class ArrayStack(object):
         return self.list.tail.data
 
     def pop(self):
-        """Remove and return the item on the top of this stack,
-        or raise ValueError if this stack is empty.
+        """Remove and return the item on the top of this stack
         Running time: O(???) – Why? [TODO]"""
-        if self.is_empty():
-            raise ValueError()
+        if self.is_empty(): # if this stack is empty
+            raise ValueError() #raise ValueError
         else:
             return self.list.pop(self.list.tail.data)
 
