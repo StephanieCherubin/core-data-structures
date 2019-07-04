@@ -317,11 +317,13 @@ class BinarySearchTree(object):
 
         if node:
             # Traverse left subtree, if it exists
-            self._traverse_post_order_recursive(node.left, visit)
+            if node.left:
+                self._traverse_post_order_recursive(node.left, visit)
             # Traverse right subtree, if it exists
-            self._traverse_post_order_recursive(node.right, visit)
+            if node.right:
+                self._traverse_post_order_recursive(node.right, visit)
             # Visit this node's data with given function
-            visit.append(node.data)
+            visit(node.data)
         return
 
     def _traverse_post_order_iterative(self, node, visit):
