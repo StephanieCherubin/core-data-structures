@@ -253,14 +253,14 @@ class BinarySearchTree(object):
         # TODO: Traverse left subtree, if it exists
         if node is None: 
             return None
-        if not self.is_empty():
-            if self.left:
+        else:
+            if node.left:
                 self._traverse_in_order_recursive(node.left, visit)
-        # Visit this node's data with given function
-        visit(node.data)
-        # Traverse right subtree, if it exists
-        if self.right:
-            self._traverse_in_order_recursive(node.right, visit)
+            # Visit this node's data with given function
+            visit(node.data)
+            # Traverse right subtree, if it exists
+            if node.right:
+                self._traverse_in_order_recursive(node.right, visit)
 
     def _traverse_in_order_iterative(self, node, visit):
         """Traverse this binary tree with iterative in-order traversal (DFS).
