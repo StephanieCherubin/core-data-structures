@@ -1,5 +1,4 @@
 from queue import Queue
-import collections
 
 class BinaryTreeNode(object):
 
@@ -173,7 +172,7 @@ class BinarySearchTree(object):
             # Recursively descend to the node's left child, if it exists
             return self._find_node_recursive(item, node.left)
         # Check if the given item is greater than the node's data
-        elif item < node.data:
+        elif item > node.data:
             # Recursively descend to the node's right child, if it exists
             return self._find_node_recursive(item, node.right)
 
