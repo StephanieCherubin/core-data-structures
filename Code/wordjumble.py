@@ -47,7 +47,7 @@ def solve_word_jumble(word_perms):
         2. _ (underscore) = the letter is not in the final jumble
     - final: list of strings in the same format as circles parameter that shows
         how the final jumble's letters are arranged into a word or phrase."""
-    #Get all English words in the built-in dictionary
+    # Get all English words in the built-in dictionary
     all_words = get_file_lines()
 
 def check_permutation(lines, word):
@@ -67,7 +67,7 @@ def main ():
     final1 = ['OO', 'OOOOOO']
     solve_word_jumble(words1)
 
-#     # Word Jumble 2. Cartoon prompt for final jumble: "What a dog house is."
+#   Word Jumble 2. Cartoon prompt for final jumble: "What a dog house is."
     words2 = ['TARFD', 'JOBUM', 'TENJUK', 'LETHEM']
     circles2 = ['____O', '_OO__', '_O___O', 'O____O']
     final2 = ['OOOO', 'OOO']
