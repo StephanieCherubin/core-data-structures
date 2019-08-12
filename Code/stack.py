@@ -85,7 +85,7 @@ class ArrayStack(object):
         or None if this stack is empty."""
         if self.is_empty():
             return None
-        return self.list.tail.data
+        return self.list[-1]
 
     def pop(self):
         """Remove and return the item on the top of this stack
@@ -93,8 +93,8 @@ class ArrayStack(object):
         if self.is_empty(): # if this stack is empty
             raise ValueError() #raise ValueError
         else:
-            return self.list.pop(self.list.tail.data)
+            return self.list.pop()
 
 
-Stack = LinkedStack
-# Stack = ArrayStack
+# Stack = LinkedStack
+Stack = ArrayStack
