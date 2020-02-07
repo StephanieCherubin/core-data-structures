@@ -24,7 +24,7 @@ class LinkedList(object):
             for item in iterable:
                 self.append(item)
 
-    def __str__(self):
+    def __str__(self): 
         """Return a formatted string representation of this linked list."""
         items = ['({!r})'.format(item) for item in self.items()]
         return '[{}]'.format(' -> '.join(items))
