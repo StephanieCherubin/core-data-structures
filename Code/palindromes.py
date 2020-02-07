@@ -22,7 +22,7 @@ def is_palindrome_iterative(text):
     clean_palindrome = []
 
     lis = list(text)
-    for item in lis:
+    for item in  lis:
         if item.isalnum():
             clean_palindrome.append(item)
 
@@ -31,8 +31,7 @@ def is_palindrome_iterative(text):
     clean = ''.join(clean_palindrome).lower()
     reverse = ''.join(reverse_palindrome).lower()
 
-    if clean == reverse:
-        return True 
+    if clean == reverse:                                        return True 
     else:
         return False
 
